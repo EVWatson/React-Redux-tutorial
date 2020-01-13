@@ -17,8 +17,14 @@ const todos = (state = [], action) => {
                     : todo
             );
         case 'REMOVE_TODO':
-            return state.filter(todo =>
-                (todo.id !== action.id)
+            // return state.filter(todo =>
+                // (todo.id !== action.id)
+
+            return state.map( todo =>
+                (todo.id === action.id )
+                ? {...todo, removed: !todo.removed}
+                : todo
+
             );
         default:
             return state

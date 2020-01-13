@@ -6,11 +6,13 @@ import {VisibilityFilters} from "../actions";
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ALL:
-            return todos;
+            return todos.filter(t => !t.removed);
         case VisibilityFilters.SHOW_COMPLETED:
-            return todos.filter(t => t.completed);
+            return todos.filter(t => t.completed && !t.removed);
         case VisibilityFilters.SHOW_ACTIVE:
-            return todos.filter(t => !t.completed);
+            return todos.filter(t => !t.completed && !t.removed);
+        case VisibilityFilters.SHOW_DELETED:
+            return todos.filter(t => t.removed);
         default:
             throw  new Error('Unknown filter: ' + filter)
     }

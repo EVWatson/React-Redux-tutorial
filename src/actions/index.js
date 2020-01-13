@@ -24,7 +24,8 @@ export const removeTodo = id => ({
 export const VisibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
     SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
+    SHOW_ACTIVE: 'SHOW_ACTIVE',
+    SHOW_DELETED: 'SHOW_DELETED'
 };
 
 
